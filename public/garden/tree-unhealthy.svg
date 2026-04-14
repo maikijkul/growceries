@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" role="img" aria-label="Unhealthy tree placeholder">
+  <rect width="120" height="140" fill="#EFEBE9"/>
+  <rect x="52" y="78" width="16" height="52" rx="2" fill="#5D4037"/>
+  <ellipse cx="60" cy="52" rx="48" ry="44" fill="#8D6E63"/>
+  <path d="M30 45 L50 65 L35 50 Z" fill="#6D4C41" opacity="0.5"/>
+  <path d="M85 40 L95 55 L80 48 Z" fill="#5D4037" opacity="0.4"/>
+  <ellipse cx="60" cy="48" rx="30" ry="8" fill="#A1887F" opacity="0.35"/>
+</svg>

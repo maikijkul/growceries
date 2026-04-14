@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" role="img" aria-label="Healthy tree placeholder">
+  <rect width="120" height="140" fill="#E8F5E9"/>
+  <rect x="52" y="78" width="16" height="52" rx="2" fill="#6D4C41"/>
+  <ellipse cx="60" cy="52" rx="48" ry="44" fill="#388E3C"/>
+  <ellipse cx="38" cy="58" rx="22" ry="20" fill="#43A047"/>
+  <ellipse cx="82" cy="58" rx="22" ry="20" fill="#43A047"/>
+</svg>
