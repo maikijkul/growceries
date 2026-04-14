@@ -56,7 +56,7 @@ export function FruitSlotsEditorPage() {
     async () => {
       if (mode?.kind !== "custom") return null;
       const row = await db.customGardenTrees.get(mode.assetId);
-      return row ?? false;
+      return row ?? null;
     },
     [mode],
   );
@@ -65,9 +65,9 @@ export function FruitSlotsEditorPage() {
   const builtinPreset = GARDEN_TREE_PRESETS[normalizeGardenTreeType(treeType)]!;
 
   const customBlobForPreview =
-    mode?.kind === "custom" && customRow && customRow !== false ? customRow.imageBlob : undefined;
+    mode?.kind === "custom" && customRow ? customRow.imageBlob : undefined;
   const customTreePreviewKey =
-    mode?.kind === "custom" && customRow && customRow !== false ? customRow.id : undefined;
+    mode?.kind === "custom" && customRow ? customRow.id : undefined;
   const customTreeUrl = useBlobObjectUrl(customBlobForPreview, customTreePreviewKey);
   const treeImageSrc =
     mode?.kind === "builtin" ? builtinPreset.healthySrc : customTreeUrl;
@@ -91,7 +91,7 @@ export function FruitSlotsEditorPage() {
         return;
       }
       if (customRow === undefined) return;
-      if (customRow === false) {
+      if (customRow === null) {
         if (!cancelled) setPositions(null);
         return;
       }

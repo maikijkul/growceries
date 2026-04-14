@@ -23,19 +23,17 @@ export function ConsumeUnitsPage() {
   const navigate = useNavigate();
   const id = categoryId ?? "";
 
-  const category = useLiveQuery(
-    () => (id ? db.categories.get(id).then((c) => c ?? null) : Promise.resolve(null)),
-    [id],
-  );
-  const total = useLiveQuery(() => (id ? totalUnopenedFor(id) : Promise.resolve(0)), [id]);
-  const lots = useLiveQuery(
-    () => (id ? db.stockLots.where("categoryId").equals(id).toArray() : Promise.resolve([])),
-    [id],
-  );
-  const breakdown = useLiveQuery(
-    () => (id ? breakdownForCategory(id) : Promise.resolve([])),
-    [id],
-  );
+  const category = useLiveQuery(async () => {
+    if (!id) return null;
+    const c = await db.categories.get(id);
+    return c ?? null;
+  }, [id]);
+  const total = useLiveQuery(async () => (id ? totalUnopenedFor(id) : 0), [id]);
+  const lots = useLiveQuery(async () => {
+    if (!id) return [];
+    return await db.stockLots.where("categoryId").equals(id).toArray();
+  }, [id]);
+  const breakdown = useLiveQuery(async () => (id ? breakdownForCategory(id) : []), [id]);
 
   const [qty, setQty] = useState("1");
   const [brand, setBrand] = useState("");

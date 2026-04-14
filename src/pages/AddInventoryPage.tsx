@@ -15,6 +15,7 @@ import {
 } from "../lib/addInventoryValidation";
 import { CustomGardenThumb } from "../components/CustomGardenThumb";
 import { addInventory } from "../services/categories";
+import type { StockLot } from "../types";
 
 const CATEGORY_LIST_ID = "growceries-categories";
 const BRAND_LIST_ID = "growceries-add-brands";
@@ -64,7 +65,7 @@ export function AddInventoryPage() {
     () =>
       matchedCategory
         ? db.stockLots.where("categoryId").equals(matchedCategory.id).toArray()
-        : Promise.resolve([]),
+        : Promise.resolve<StockLot[]>([]),
     [matchedCategory?.id],
   );
 
