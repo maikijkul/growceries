@@ -165,9 +165,9 @@ export function AddInventoryPage() {
 
   return (
     <div
-      className={`${homeViewShellClass()} pb-10 pt-[max(0.75rem,env(safe-area-inset-top))]`}
+      className={`${homeViewShellClass()} pb-10`}
     >
-      <header className="sticky top-0 z-10 border-b border-emerald-200/50 bg-[#e8f5ec]/95 px-4 py-3 backdrop-blur-sm">
+      <header className="sticky top-0 z-10 border-b border-emerald-200/50 bg-[#e8f5ec]/95 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))] backdrop-blur-sm">
         <div className="mx-auto grid max-w-lg grid-cols-[1fr_auto_1fr] items-center gap-3">
           <Link
             to={homeHref()}
@@ -190,7 +190,7 @@ export function AddInventoryPage() {
           input={
             <input
               type="date"
-              className="input"
+              className="input min-w-0 max-w-full"
               value={values.purchaseDate}
               onChange={(e) => update("purchaseDate", e.target.value)}
             />
