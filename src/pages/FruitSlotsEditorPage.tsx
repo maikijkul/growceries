@@ -13,6 +13,7 @@ import {
   setCustomGardenTreeFruitSlots,
 } from "../services/gardenSlots";
 import { useBlobObjectUrl } from "../lib/blobObjectUrl";
+import type { CustomGardenTreeAsset } from "../types";
 
 function parsePctString(s: string): number {
   const n = parseFloat(String(s).trim().replace(/%$/, ""));
@@ -53,7 +54,7 @@ export function FruitSlotsEditorPage() {
   }, [builtinRaw, customId]);
 
   const customRow = useLiveQuery(
-    async () => {
+    async (): Promise<CustomGardenTreeAsset | null> => {
       if (mode?.kind !== "custom") return null;
       const row = await db.customGardenTrees.get(mode.assetId);
       return row ?? null;
