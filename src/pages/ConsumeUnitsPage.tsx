@@ -163,9 +163,9 @@ export function ConsumeUnitsPage() {
 
   return (
     <div
-      className={`${homeViewShellClass()} pb-10 pt-[max(0.75rem,env(safe-area-inset-top))]`}
+      className={`${homeViewShellClass()} pb-10`}
     >
-      <header className="border-b border-emerald-200/50 bg-[#e8f5ec]/95 px-4 py-3 backdrop-blur-sm">
+      <header className="border-b border-emerald-200/50 bg-[#e8f5ec]/95 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))] backdrop-blur-sm">
         <div className="mx-auto flex max-w-lg items-center justify-between">
           <Link
             to={homeHref()}

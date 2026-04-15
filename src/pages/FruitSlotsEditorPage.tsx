@@ -77,17 +77,9 @@ export function FruitSlotsEditorPage() {
   const [dragIndex, setDragIndex] = useState<number | null>(null);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [copied, setCopied] = useState(false);
   const stageRef = useRef<HTMLDivElement>(null);
 
   const fruitPreviewSrc = GARDEN_FRUIT_PRESETS[0]!.healthySrc;
-
-  const builtinSlotsCode = useMemo(() => {
-    if (!mode || mode.kind !== "builtin" || !positions) return "";
-    const slots = numsToSlots(positions);
-    const asJson = JSON.stringify(slots, null, 2);
-    return `fruitSlotPositions: ${asJson},`;
-  }, [mode, positions]);
 
   useEffect(() => {
     if (!mode) return;
@@ -190,20 +182,6 @@ export function FruitSlotsEditorPage() {
     })();
   };
 
-  const handleCopyCode = useCallback(() => {
-    if (!builtinSlotsCode) return;
-    setCopied(false);
-    void (async () => {
-      try {
-        await navigator.clipboard.writeText(builtinSlotsCode);
-        setCopied(true);
-        window.setTimeout(() => setCopied(false), 1200);
-      } catch {
-        setError("Could not copy. Select the code and copy manually.");
-      }
-    })();
-  }, [builtinSlotsCode]);
-
   if (!mode) {
     return (
       <div className={`${homeViewShellClass()} p-8 text-center`}>
@@ -250,9 +228,9 @@ export function FruitSlotsEditorPage() {
 
   return (
     <div
-      className={`${homeViewShellClass()} pb-10 pt-[max(0.75rem,env(safe-area-inset-top))]`}
+      className={`${homeViewShellClass()} pb-10`}
     >
-      <header className="border-b border-emerald-200/50 bg-[#e8f5ec]/95 px-4 py-3 backdrop-blur-sm">
+      <header className="border-b border-emerald-200/50 bg-[#e8f5ec]/95 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))] backdrop-blur-sm">
         <div className="mx-auto flex max-w-lg items-center justify-between gap-2">
           <button
             type="button"
@@ -274,35 +252,6 @@ export function FruitSlotsEditorPage() {
           positions match the graphic view. Save applies for{" "}
           {mode.kind === "builtin" ? "every category using this tree type" : "this custom tree"}.
         </p>
-
-        {mode.kind === "builtin" ? (
-          <section className="rounded-2xl border border-emerald-100 bg-white/95 p-4 shadow-sm">
-            <div className="flex items-center justify-between gap-3">
-              <h2 className="text-sm font-semibold tracking-wide text-emerald-800/80">
-                Export as preset defaults
-              </h2>
-              <button
-                type="button"
-                onClick={handleCopyCode}
-                className="rounded-lg border border-emerald-200 bg-white px-3 py-1.5 text-xs font-semibold text-emerald-900 hover:bg-emerald-50 disabled:opacity-50"
-                disabled={!builtinSlotsCode}
-              >
-                {copied ? "Copied" : "Copy"}
-              </button>
-            </div>
-            <p className="mt-2 text-xs text-emerald-700/90">
-              Use this to bake your tuned positions into <code className="font-semibold">src/lib/gardenTree.ts</code>{" "}
-              as the shipped defaults for this tree type.
-            </p>
-            <textarea
-              readOnly
-              value={builtinSlotsCode}
-              className="mt-3 w-full rounded-xl border border-emerald-200 bg-white px-3 py-2 font-mono text-[12px] leading-snug text-emerald-950 shadow-sm"
-              rows={8}
-              onFocus={(e) => e.currentTarget.select()}
-            />
-          </section>
-        ) : null}
 
         {/*
           Match GardenGraphicView: grid-cols-3 gap-2 sm:gap-3 + garden-category-tile p-2.
