@@ -200,7 +200,7 @@ export function FruitSlotsEditorPage() {
     );
   }
 
-  if (mode.kind === "custom" && customRow === false) {
+  if (mode.kind === "custom" && customRow === null) {
     return (
       <div className={`${homeViewShellClass()} p-8 text-center`}>
         <p className="text-emerald-900">Custom tree not found.</p>
@@ -219,7 +219,7 @@ export function FruitSlotsEditorPage() {
     );
   }
 
-  const customAsset = mode.kind === "custom" && customRow !== false ? customRow : null;
+  const customAsset = mode.kind === "custom" && customRow ? customRow : null;
   const title =
     mode.kind === "builtin"
       ? `Fruit positions — ${builtinPreset.label}`
