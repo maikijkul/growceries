@@ -66,13 +66,13 @@ export function HomePage() {
         className={`sticky top-0 z-30 border-b px-4 py-4 pt-[max(0.75rem,env(safe-area-inset-top))] backdrop-blur-sm ${
           view === "list"
             ? "border-emerald-200/50 bg-[#e8f5ec]/95"
-            : "border-emerald-100/90 bg-emerald-50/95"
+            : "border-emerald-200/50 bg-[#e8f5ec]/95"
         }`}
       >
         <div className="mx-auto flex max-w-lg items-center gap-3">
           <div className="min-w-0 flex-1">
             <h1
-              className={`text-emerald-900 ${view === "list" ? "font-serif text-2xl font-bold tracking-tight" : "text-xl font-semibold tracking-tight"}`}
+              className="font-serif text-2xl font-bold tracking-tight text-emerald-900"
             >
               Growceries
             </h1>

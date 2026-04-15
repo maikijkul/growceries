@@ -167,7 +167,7 @@ export function AddInventoryPage() {
     <div
       className={`${homeViewShellClass()} pb-10 pt-[max(0.75rem,env(safe-area-inset-top))]`}
     >
-      <header className="sticky top-0 z-10 border-b border-emerald-100/90 bg-emerald-50/95 px-4 py-3 backdrop-blur">
+      <header className="sticky top-0 z-10 border-b border-emerald-200/50 bg-[#e8f5ec]/95 px-4 py-3 backdrop-blur-sm">
         <div className="mx-auto grid max-w-lg grid-cols-[1fr_auto_1fr] items-center gap-3">
           <Link
             to={homeHref()}
@@ -175,7 +175,9 @@ export function AddInventoryPage() {
           >
             Cancel
           </Link>
-          <h1 className="text-center text-lg font-semibold text-emerald-900">Add Inventory</h1>
+          <h1 className="text-center font-serif text-xl font-bold tracking-tight text-emerald-900">
+            Add Inventory
+          </h1>
           <span className="justify-self-end" aria-hidden />
         </div>
       </header>

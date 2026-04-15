@@ -230,7 +230,7 @@ export function FruitSlotsEditorPage() {
     <div
       className={`${homeViewShellClass()} pb-10 pt-[max(0.75rem,env(safe-area-inset-top))]`}
     >
-      <header className="border-b border-emerald-100/90 bg-emerald-50/95 px-4 py-3">
+      <header className="border-b border-emerald-200/50 bg-[#e8f5ec]/95 px-4 py-3 backdrop-blur-sm">
         <div className="mx-auto flex max-w-lg items-center justify-between gap-2">
           <button
             type="button"
@@ -239,7 +239,7 @@ export function FruitSlotsEditorPage() {
           >
             Cancel
           </button>
-          <h1 className="min-w-0 flex-1 text-center text-base font-semibold leading-tight text-emerald-900">
+          <h1 className="min-w-0 flex-1 text-center font-serif text-lg font-bold leading-tight tracking-tight text-emerald-900">
             {title}
           </h1>
           <span className="w-14 shrink-0" />

@@ -126,7 +126,7 @@ export function CategoryDetailPage() {
 
   return (
     <div className={`${homeViewShellClass()} pb-12`}>
-      <div className="sticky top-0 z-30 border-b border-emerald-100/90 bg-emerald-50/95 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))] backdrop-blur">
+      <div className="sticky top-0 z-30 border-b border-emerald-200/50 bg-[#e8f5ec]/95 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))] backdrop-blur-sm">
         <header>
           <div className="mx-auto flex max-w-lg items-center gap-3">
             <Link to={homeHref()} className="text-sm font-medium text-emerald-800 hover:underline">
@@ -134,7 +134,9 @@ export function CategoryDetailPage() {
             </Link>
           </div>
           <div className="mx-auto mt-2 max-w-lg">
-            <h1 className="text-xl font-semibold text-emerald-950">{category.name}</h1>
+            <h1 className="font-serif text-2xl font-bold tracking-tight text-emerald-900">
+              {category.name}
+            </h1>
           </div>
         </header>
 
@@ -144,8 +146,8 @@ export function CategoryDetailPage() {
             onClick={() => setSearchParams({ tab: "overview" })}
             className={`rounded-lg py-2 text-sm font-medium ${
               tab === "overview"
-                ? "bg-emerald-600 text-white"
-                : "bg-white/80 text-emerald-800 ring-1 ring-emerald-200"
+                ? "bg-emerald-800 text-white shadow-sm"
+                : "bg-white text-emerald-800 ring-1 ring-emerald-200/80 hover:bg-emerald-50/70"
             }`}
           >
             Overview
@@ -155,8 +157,8 @@ export function CategoryDetailPage() {
             onClick={() => setSearchParams({ tab: "history" })}
             className={`rounded-lg py-2 text-sm font-medium ${
               tab === "history"
-                ? "bg-emerald-600 text-white"
-                : "bg-white/80 text-emerald-800 ring-1 ring-emerald-200"
+                ? "bg-emerald-800 text-white shadow-sm"
+                : "bg-white text-emerald-800 ring-1 ring-emerald-200/80 hover:bg-emerald-50/70"
             }`}
           >
             History
@@ -166,8 +168,8 @@ export function CategoryDetailPage() {
             onClick={() => setSearchParams({ tab: "reviews" })}
             className={`rounded-lg py-2 text-sm font-medium ${
               tab === "reviews"
-                ? "bg-emerald-600 text-white"
-                : "bg-white/80 text-emerald-800 ring-1 ring-emerald-200"
+                ? "bg-emerald-800 text-white shadow-sm"
+                : "bg-white text-emerald-800 ring-1 ring-emerald-200/80 hover:bg-emerald-50/70"
             }`}
           >
             Reviews

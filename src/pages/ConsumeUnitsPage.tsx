@@ -165,7 +165,7 @@ export function ConsumeUnitsPage() {
     <div
       className={`${homeViewShellClass()} pb-10 pt-[max(0.75rem,env(safe-area-inset-top))]`}
     >
-      <header className="border-b border-emerald-100/90 bg-emerald-50/95 px-4 py-3">
+      <header className="border-b border-emerald-200/50 bg-[#e8f5ec]/95 px-4 py-3 backdrop-blur-sm">
         <div className="mx-auto flex max-w-lg items-center justify-between">
           <Link
             to={homeHref()}
@@ -173,7 +173,9 @@ export function ConsumeUnitsPage() {
           >
             Cancel
           </Link>
-          <h1 className="text-lg font-semibold text-emerald-900">Use Stock</h1>
+          <h1 className="font-serif text-xl font-bold tracking-tight text-emerald-900">
+            Use Stock
+          </h1>
           <span className="w-14" />
         </div>
       </header>
